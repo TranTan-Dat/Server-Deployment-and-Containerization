@@ -86,3 +86,16 @@ Completing the project involves several steps:
 6. Create a CodeBuild stage which will build, test, and deploy your code
 
 For more detail about each of these steps, see the project lesson.
+1. This is my ELB url: http://a82871ddafc62432587f99b29924214a-349850954.us-west-2.elb.amazonaws.com/
+2. I run this command:
+``` 
+export TOKEN=$(curl -d '{"email":"your-email@example.com","password":"your-password"}' \
+-H "Content-Type: application/json" \
+-X POST http://a82871ddafc62432587f99b29924214a-349850954.us-west-2.elb.amazonaws.com/auth | jq -r '.token')
+
+curl --request GET 'http://a82871ddafc62432587f99b29924214a-349850954.us-west-2.elb.amazonaws.com/contents' \
+-H "Authorization: Bearer ${TOKEN}" | jq
+```
+
+For the result from my site when i test, please help me to take a look into Result folder.
+Thank you!
